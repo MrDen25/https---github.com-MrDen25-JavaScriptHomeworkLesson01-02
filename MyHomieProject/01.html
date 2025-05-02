@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-pannel {
+
+            padding: 10px;
+
+        }
+
+        .input {
+            width: 400px;
+        }
+
+        .list-container {
+            padding: 10px;
+        }
+
+        .list {
+            border: 1px solid gray;
+            width: 500px;
+            margin-top: 2px;
+            padding: 5px;
+            display: flex;
+
+
+
+
+        }
+
+        .list span {
+            padding-left: 5px;
+        }
+
+        .completed {
+            background-color: green;
+            text-decoration: line-through;
+            color: white
+        }
+
+        .list button {
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="info-pannel">
+        <input class="input" type="text">
+        <button class="add-Task">Додати задачу</button>
+    </div>
+    <div class="list-container">
+        <p class="start-message">Немає нових задач</p>
+    </div>
+
+    <script>
+        let startMessage = document.querySelector(".start-message")
+        let listContainer = document.querySelector(".list-container")
+        let input = document.querySelector(".input")
+        let addTaskButton = document.querySelector(".add-Task")
+
+        addTaskButton.addEventListener("click", addTaskHandler)
+
+        function createTask(text) {
+
+            let list = document.createElement("div")
+            let checkbox = document.createElement("input")
+            checkbox.addEventListener("click", changeTaskState)
+            let span = document.createElement("span")
+            let dell = document.createElement("button")
+            dell.addEventListener("click", function () {
+                list.remove()
+                if (document.querySelectorAll(".list").length === 0) startMessage.hidden = false;
+            })
+            dell.textContent = "Видалити"
+
+            span.textContent = text
+            checkbox.type = "checkbox"
+
+
+            list.classList.add("list")
+
+            list.append(checkbox)
+            list.append(span)
+            list.append(dell)
+            listContainer.append(list)
+        }
+
+        function addTaskHandler() {
+            if (input.value) {
+                if (!startMessage.hidden) {
+                    startMessage.hidden = true
+                }
+                let newTask = createTask(input.value)
+
+                input.value = ""
+
+            }
+            else alert("Введіть значення в поле")
+        }
+        function changeTaskState() {
+            if (this.checked)
+                this.parentElement.classList.add("completed")
+            else this.parentElement.classList.remove("completed")
+
+        }
+    </script>
+</body>
+
+</html>
