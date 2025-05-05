@@ -1,0 +1,52 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  font-family: "Oswald", serif;
+  font-weight: 400;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+}
+img {
+  background-repeat: no-repeat;
+  display: block;
+  max-width: 100%;
+}
+
+.main-container {
+  max-width: 1109.89px;
+  margin: 0 auto;
+}
+.header-container {
+  display: flex;
+}
+.item-1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: #101010;
+}
+
+.item-2 {
+  display: flex;
+  width: 255px;
+  height: 21px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #101010;
+}
